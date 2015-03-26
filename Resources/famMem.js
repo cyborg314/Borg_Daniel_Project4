@@ -65,7 +65,7 @@ var getDetail = function(dataSource){
 	});
 	
 	var detailImageView = Ti.UI.createImageView({
-		image: dataSource.image,
+		image: dataSource.fampics,
 		top: 35,
 		width: "100%",
 		imageAlign: "center"
@@ -129,7 +129,8 @@ var familySection = [famMembersSection];
 
 members.setData(familySection);
 members.addEventListener("click", function(event){
-	getDetail(famMemWindow);
+	getDetail(event.source);
+	console.log(event);
 });
 
 	

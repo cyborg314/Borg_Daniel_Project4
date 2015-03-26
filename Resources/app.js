@@ -65,6 +65,7 @@ var bottomText = Ti.UI.createLabel({
 
 var loadFile = require("galleryView");
 var laodFile = require("famMem");
+var loadFile = require("fav");
 
 mainWin.add(galButton, famMemButton, myFavButton, bottomText);
 galButton.add(galText);
