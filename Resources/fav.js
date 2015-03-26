@@ -1,4 +1,3 @@
-
 var picText = Ti.UI.createLabel({
 	text: "Flip to see what is my favorite family time",
 	font: {fontSize: 35, fontFamily: "Arial"},
@@ -63,8 +62,10 @@ var mainWindow4 = function(){
 	};
 	
 	picSwitch.addEventListener("change", function(e){
-		showFav('Switch value: ' + picSwitch.value);
+	showFav('Switch value: ' + picSwitch.value);
+		
 	});
+	
 	favWin.add(picSwitch, picText, favWinText, closeButton);
 	navWin.openWindow(favWin);
 };
