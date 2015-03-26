@@ -7,6 +7,8 @@ var famMembers = [
 
 ];
 
+var imageFiles = ["IMG_0342.JPG", "IMG_0339.JPG", "IMG_0318.JPG", "IMG_0018.JPG"];
+
 var mainWindow = function(){
 	var famMemWindow = Ti.UI.createWindow({
 		title: "Family Member",
@@ -43,6 +45,13 @@ var getDetail = function(dataSource){
 	var detailWindow = Ti.UI.createWindow({
 		backgroundColor: "#f5f5f5",
 	});
+	
+	var detailImageView = Ti.UI.createImageView({
+		image: dataSource.image,
+		top: 70,
+		width: "100%",
+		imageAlign: "center"
+	});
 
 	var detailTitleView = Ti.UI.createView({
 		height: 65,
@@ -59,24 +68,19 @@ var getDetail = function(dataSource){
 	var detailTitleLabel = Ti.UI.createLabel({
 		text: dataSource.title,
 		font: {fonteSize: 20, fontFamily: "Arial", fontWeigth: "bold"},
-		top: 30,
+		top: 35,
 		width: "100%",
 		textAlign: "center"
 	});
 	
-	var detailImageView = Ti.UI.createImageView({
-		image: dataSource.fampics,
-		top: 35,
-		width: "100%",
-		imageAlign: "center"
-	});
 	
 	var detailText = Ti.UI.createLabel({
 		text: dataSource.desc,
 		font: {fonteSize: 14, fontFamily: "Arial"},
 		top: detailBorder.height + detailBorder.top + 40,
-		left: 10,
-		right: 10
+		// left: 10,
+		// right: 10,
+		bottom: -120
 	});
 	
 	var closeButton = Ti.UI.createLabel({
