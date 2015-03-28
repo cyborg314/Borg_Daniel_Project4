@@ -3,7 +3,7 @@ var galleryList = gallery.getDirectoryListing();
 
 var famImages = Ti.UI.createImageView({
 	image: "fampics/" + galleryList[0],
-	bottom: 150                     /// change???
+	bottom: 150                     
 });
 
 var famView = function(){

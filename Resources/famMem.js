@@ -1,11 +1,20 @@
 //Data
 var famMembers = [
-{title: "Ronald Jobst", description: "My Stepfather, who loves to work hard for his family.", image: "fampics/IMG_0342"},
-{title: "Ashlie Jobst", description: "My sister, who appreciates anytime with her family.", image: "fampics/IMG_0339"},
-{title: "Julia Perilla", description: "My niece, who constantly loves to eat and play.", image: "fampics/IMG_0318"},
-{title: "Frank Borg", description : "My father, who makes sure everybody in his family is taken care of.", image: "fampics/IMG_0018"},
+{title: "Ronald Jobst", description: "My Stepfather, who loves to work hard for his family.", image: "fampics/IMG_0342.JPG"},
+{title: "Ashlie Jobst", description: "My sister, who appreciates anytime with her family.", image: "fampics/IMG_0339.JPG"},
+{title: "Julia Perilla", description: "My niece, who constantly loves to eat and play.", image: "fampics/IMG_0318.JPG"},
+{title: "Frank Borg", description : "My father, who makes sure everybody in his family is taken care of.", image: "fampics/IMG_0018.JPG"},
 
 ];
+
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "fampics");
+var imageFiles = imageFolder.getDirectoryListing();
+
+var memImages = Ti.UI.createImageView({
+	image: "fampics/" + imageFiles[0],
+	bottom: 150                     
+});
+
 
 var imageFiles = ["IMG_0342.JPG", "IMG_0339.JPG", "IMG_0318.JPG", "IMG_0018.JPG"];
 
@@ -14,7 +23,6 @@ var mainWindow = function(){
 		title: "Family Member",
 		backgroundColor: "#f5f5f5"
 });
-
 
 var titleView = Ti.UI.createView({
 	height: 65,
@@ -78,8 +86,6 @@ var getDetail = function(dataSource){
 		text: dataSource.desc,
 		font: {fonteSize: 14, fontFamily: "Arial"},
 		top: detailBorder.height + detailBorder.top + 40,
-		// left: 10,
-		// right: 10,
 		bottom: -120
 	});
 	
@@ -96,7 +102,6 @@ var getDetail = function(dataSource){
 	});
 	
 	var closeWindow = function(){
-		//detailWindow.close();
 		detailWindow.close({transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT});
 	};
 	
@@ -110,9 +115,6 @@ var getDetail = function(dataSource){
 
 famMemWindow.add(members);
 
-
-
-
 for(var i=0, j=famMembers.length; i<j; i++){
 	var theRow = Ti.UI.createTableViewRow({
 		title: famMembers[i].title,
@@ -124,7 +126,7 @@ for(var i=0, j=famMembers.length; i<j; i++){
 	if(Ti.Platform.name === "iPhone OS"){
 		theRow.hasChild = false;
 		theRow.hasDetail = true;	
-}
+	}
 	
 	famMembersSection.add(theRow);
 }

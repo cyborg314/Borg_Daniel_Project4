@@ -1,3 +1,14 @@
+var titleText = Ti.UI.createLabel({
+	text: "Favortie Family Time",
+	color: "Black",
+	top: 35
+});
+
+var border = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: 60
+});
 var picText = Ti.UI.createLabel({
 	text: "Flip to see what is my favorite family time",
 	font: {fontSize: 35, fontFamily: "Arial"},
@@ -5,25 +16,25 @@ var picText = Ti.UI.createLabel({
 	top: 125
 });
 
-var mainWindow4 = function(){ 
+var mainWindow = function(){ 
 	var favWin = Ti.UI.createWindow({
 		backgroundColor: "White"
 	});
 	
+	var picSwitch = Ti.UI.createSwitch({
+		value: false,
+		bottom: 130
+	});	
+	
 	var favWinText = Ti.UI.createLabel({
-		text: "My Favorite Family Time",
+		text: "Last Year's Thanksgiving",
 		color: "Black",
 		bottom: 100
 	});
 	
-	var picSwitch = Ti.UI.createSwitch({
-		value: false,
-		bottom: 145
-	});	
-	
 	var showPic = Ti.UI.createImageView({
-	image: "fampics/IMG_0020",
-	top: 70
+		image: "fampics/IMG_0020.JPG",
+		top: 70
 	});
 	
 	var closeButton = Ti.UI.createLabel({
@@ -65,11 +76,11 @@ var mainWindow4 = function(){
 	showFav('Switch value: ' + picSwitch.value);
 		
 	});
-	
+	favWin.add(titleText, border);
 	favWin.add(picSwitch, picText, favWinText, closeButton);
 	navWin.openWindow(favWin);
 };
 
-myFavButton.addEventListener("click", mainWindow4);
+myFavButton.addEventListener("click", mainWindow);
 	
 	
